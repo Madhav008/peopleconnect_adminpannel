@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Container, Row, Col, Button, Form, Card } from "react-bootstrap";
 import CreateCardStep from "../components/CreateCardSteps";
 import { storage } from "../firebase/firebase";
+import axios from "axios";
+import { useSelector } from "react-redux";
+const ServicesScreen = ({ history }) => {
+  const { userInfo } = useSelector((state) => state.userLogin);
 
-const ServicesScreen = () => {
   const [inputFields, setInputField] = useState([
     { image: "", title: "" },
     { image: "", title: "" },
@@ -19,8 +22,6 @@ const ServicesScreen = () => {
     { image: "", title: "" },
   ]);
 
-  
-
   const handleChangeInput = (index, event) => {
     const values = [...inputFields];
 
@@ -29,6 +30,23 @@ const ServicesScreen = () => {
         const reader = new FileReader();
         reader.onloadend = () => {
           values[index][event.target.name] = reader.result;
+          const uploadTask = storage
+            .ref(`images/${event.target.files[0].name}`)
+            .put(event.target.files[0]);
+          uploadTask.on(
+            (error) => {
+              console.log(error);
+            },
+            () => {
+              storage
+                .ref("images")
+                .child(event.target.files[0].name)
+                .getDownloadURL()
+                .then((getDownloadURL) => {
+                  values[index]["image"] = getDownloadURL;
+                });
+            }
+          );
           setInputField(values);
         };
         reader.readAsDataURL(event.target.files[0]);
@@ -40,7 +58,7 @@ const ServicesScreen = () => {
     setInputField(values);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     function checkNull(inputField) {
@@ -49,6 +67,23 @@ const ServicesScreen = () => {
     console.log(inputFields.filter(checkNull));
 
     //send request to data
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const json = {
+      userId: userInfo._id,
+      service: inputFields.filter(checkNull),
+    };
+    const { data } = await axios.post("/product", json, config);
+
+    if (data) {
+      history.push("/order");
+    }
   };
   return (
     <div>

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Form, Container } from "react-bootstrap";
 import CreateCardStep from "../components/CreateCardSteps";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { storage } from "../firebase/firebase";
-
 
 const PaymentScreen = ({ history }) => {
   const { userInfo } = useSelector((state) => state.userLogin);
@@ -17,29 +16,39 @@ const PaymentScreen = ({ history }) => {
   const [code, setcode] = useState(null);
   const [name, setname] = useState(null);
   const [bname, setbname] = useState(null);
+  const [url, setUrl] = useState(null);
 
-  // const handleUpload = () => {
-  //   const uploadTask = storage.ref(`images/${image.name}`).put(image);
-  //   uploadTask.on(
-  //     (error) => {
-  //       console.log(error);
-  //     },
-  //     () => {
-  //       storage
-  //         .ref("images")
-  //         .child(image.name)
-  //         .getDownloadURL()
-  //         .then((getDownloadURL) => {
-  //           setUrl(getDownloadURL);
-  //         });
-  //     }
-  //   );
-  // };
+  const handleUpload = (image) => {
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((getDownloadURL) => {
+            setUrl(getDownloadURL);
+          });
+      }
+    );
+  };
+  useEffect(() => {
+    if (qr) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        handleUpload(qr);
+      };
+
+      reader.readAsDataURL(qr);
+    }
+  }, [qr]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +58,7 @@ const PaymentScreen = ({ history }) => {
 
     const json = {
       userId: userInfo._id,
-      // qrcode: qr,
+      qrcode: url,
       paytmNumber: paytm,
       phonePay: phonePay,
       gpayNumber: gpay,
@@ -61,7 +70,7 @@ const PaymentScreen = ({ history }) => {
     const { data } = await axios.post("/payment", json, config);
 
     if (data) {
-      history.push("/services");
+      history.push("/service");
     }
   };
 
