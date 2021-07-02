@@ -1,0 +1,1563 @@
+
+
+
+<title>Admin</title>
+
+<head>
+
+ <meta name="keywords" content="DIGI card, Digital Visiting Card">
+ 
+ <meta name="description" content="Best digital visiting card online with great design">
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <link rel='stylesheet' href='/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  
+  <link rel="stylesheet" href="/css/awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <meta      name='viewport'      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<link rel="fav-icon" href="/logo.png" type="image/png">
+<link rel="stylesheet" href="/social/css.css" >
+<link rel="stylesheet" href="/social/mobile_css.css" >
+<script src="master_js.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+</head>
+
+
+
+
+<header id="header">
+	<div class="logo" onclick="location.href='index.php'">
+		<img src="/logo.png"><h3>ADMIN</h3>
+	</div>
+	<div class="mobile_home">&equiv;</div>
+	<div class="head_txt">
+		<h3>Hi! 		</h3>
+		<h3>
+		<a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+		
+		</h3>
+	</div>
+	
+
+</header>
+
+
+<script>
+
+$(document).ready(function(){
+	$('.mobile_home').on('click',function(){
+		$('#header').toggleClass('add_height');
+		
+	})
+})
+
+</script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    $('#alert_display_full').css('display','block');
+  });
+});
+</script>
+
+<style>
+
+</style>
+<div id="alert_display_full">
+	<div id="loader1"></div>
+	<h3>Loading...</h3>
+
+</div>
+
+
+
+<div class="main3">
+	<div class="navigator_up">
+		<a href="/userpanel/cardtheame"><div class="nav_cont " ><i class="fa fa-map"></i> Select Theme</div></a>
+		<a href="/userpanel/companydetail"><div class="nav_cont"><i class="fa fa-bank"></i> Company Details</div></a>
+		<a href="/userpanel/social"><div class="nav_cont "><i class="fa fa-facebook"></i> Social Links</div></a>
+		<a href="/userpanel/paymentoption"><div class="nav_cont"><i class="fa fa-rupee"></i> Payment Options</div></a>
+		<a href="/userpanel/product"><div class="nav_cont "><i class="fa fa-ticket"></i> Products & Services</div></a>
+		<a href="/userpanel/order"><div class="nav_cont"><i class="fa fa-archive"></i> Order Page</div></a>
+		<a href="/userpanel/imagegalery"><div class="nav_cont"><i class="fa fa-image"></i> Image Gallery</div></a>
+		<a href="/template1"><div class="nav_cont"><i class="fa fa-laptop"></i> Preview Card</div></a>
+	
+	</div>
+	
+	<div class="btn_holder">
+		<a href="create_card4.php"><div class="back_btn"><i class="fa fa-chevron-circle-left"></i> Back</div></a>
+		<a href="/userpanel/imagegalery"><div class="skip_btn">Skip <i class="fa fa-chevron-circle-right"></i></div></a>
+	</div>
+	<h1>Ecommerce</h1>
+	<p class="sug_alert">(Upload products which people can order online)</p>
+	
+	<div id="status_remove_img"></div>
+	<div id="status_remove_img"></div>
+	<form action="" method="POST" enctype="multipart/form-data">
+	
+
+
+<!-------------------order ----------------------->
+	
+	
+
+	<div class="divider2"><div class="num">1</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo1" onclick="clickFocus(1)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL1(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+1).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img1" id="clickMeImage1"  onchange="readURL1(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name1" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp1" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price1"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax1"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">2</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo2" onclick="clickFocus(2)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL2(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+2).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img2" id="clickMeImage2"  onchange="readURL2(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name2" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp2" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price2"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax2"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">3</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo3" onclick="clickFocus(3)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL3(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+3).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img3" id="clickMeImage3"  onchange="readURL3(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name3" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp3" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price3"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax3"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">4</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo4" onclick="clickFocus(4)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL4(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+4).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img4" id="clickMeImage4"  onchange="readURL4(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name4" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp4" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price4"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax4"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">5</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo5" onclick="clickFocus(5)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL5(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+5).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img5" id="clickMeImage5"  onchange="readURL5(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name5" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp5" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price5"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax5"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">6</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo6" onclick="clickFocus(6)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL6(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+6).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img6" id="clickMeImage6"  onchange="readURL6(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name6" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp6" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price6"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax6"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">7</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo7" onclick="clickFocus(7)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL7(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+7).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img7" id="clickMeImage7"  onchange="readURL7(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name7" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp7" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price7"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax7"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">8</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo8" onclick="clickFocus(8)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL8(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+8).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img8" id="clickMeImage8"  onchange="readURL8(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name8" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp8" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price8"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax8"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">9</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo9" onclick="clickFocus(9)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL9(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+9).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img9" id="clickMeImage9"  onchange="readURL9(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name9" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp9" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price9"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax9"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">10</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo10" onclick="clickFocus(10)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL10(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+10).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img10" id="clickMeImage10"  onchange="readURL10(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name10" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp10" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price10"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax10"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">11</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo11" onclick="clickFocus(11)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL11(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+11).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img11" id="clickMeImage11"  onchange="readURL11(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name11" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp11" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price11"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax11"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">12</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo12" onclick="clickFocus(12)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL12(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+12).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img12" id="clickMeImage12"  onchange="readURL12(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name12" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp12" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price12"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax12"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">13</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo13" onclick="clickFocus(13)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL13(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+13).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img13" id="clickMeImage13"  onchange="readURL13(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name13" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp13" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price13"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax13"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">14</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo14" onclick="clickFocus(14)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL14(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+14).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img14" id="clickMeImage14"  onchange="readURL14(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name14" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp14" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price14"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax14"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">15</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo15" onclick="clickFocus(15)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL15(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+15).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img15" id="clickMeImage15"  onchange="readURL15(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name15" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp15" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price15"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax15"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">16</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo16" onclick="clickFocus(16)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL16(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+16).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img16" id="clickMeImage16"  onchange="readURL16(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name16" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp16" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price16"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax16"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">17</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo17" onclick="clickFocus(17)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL17(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+17).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img17" id="clickMeImage17"  onchange="readURL17(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name17" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp17" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price17"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax17"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">18</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo18" onclick="clickFocus(18)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL18(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+18).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img18" id="clickMeImage18"  onchange="readURL18(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name18" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp18" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price18"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax18"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">19</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo19" onclick="clickFocus(19)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL19(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+19).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img19" id="clickMeImage19"  onchange="readURL19(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name19" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp19" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price19"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax19"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+		
+	
+
+	<div class="divider2"><div class="num">20</div>
+		
+			<script>
+	
+							
+							// if approved
+								function removeData(id,numb){
+										console.log(id,numb);
+										$('#status_remove_img').css('color','blue');
+									
+										$.ajax({
+											url:'js_request.php',
+											method:'POST',
+											data:{pro_id:id,pro_num:numb},
+											dataType:'text',
+											success:function(data){
+												$('#status_remove_img').html(data);
+												$('#showPreviewLogo'+numb).attr('src','/upload.png');
+
+											}
+											
+										});
+										
+									}
+	
+	</script>
+		
+		
+		
+		<img  src="/upload.png" alt="Select image" id="showPreviewLogo20" onclick="clickFocus(20)" >
+		<div class="input_box">
+		
+		
+		
+		
+			<script>
+			
+				function clickFocus(vbl){
+					$('#clickMeImage'+vbl).click();
+				}
+				
+				function readURL20(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo'+20).attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+				
+			
+			</script>
+		<input type="file" name="pro_img20" id="clickMeImage20"  onchange="readURL20(this);" accept="image/*"  >
+			
+		</div>	
+		<div class="input_box"><p>Product Name</p><input type="text" name="pro_name20" maxlength="200" placeholder="Product Name" value="" ></div>
+		
+		<div class="input_box"><p>MRP</p><input type="number" name="pro_mrp20" maxlength="200" max="500000" min="0" placeholder="MRP " value="" ></div>
+		
+		<div class="input_box"><p>Selling Price</p><input type="number" name="pro_price20"  maxlength="200" max="500000" min="0" placeholder="Product Selling Price" value="" ></div>
+		
+		<div class="input_box" style="display:none"><p>Product Tax</p><input type="number" name="pro_tax20"  maxlength="200" max="500000" min="0" placeholder="Tax Rate on product" value="" ></div>
+		
+		
+	</div>
+	
+	
+	<!-------------------service 1 ----------------------->
+		
+		
+		
+		<input type="submit" class="" name="product" value="Add Product" id="block_loader">
+	
+<!-------------------form ending----------------------->
+	</form>
+	
+	
+	
+	
+	
+</div>
+
+
+
+<footer class="">
+	<p>© www.localtodigital.in || 2021</p>
+</footer>

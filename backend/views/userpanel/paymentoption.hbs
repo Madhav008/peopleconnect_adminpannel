@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+
+<title>Admin</title>
+
+<head>
+
+	<meta name="keywords" content="DIGI card, Digital Visiting Card">
+	<meta name="description" content="Best digital visiting card online with great design">
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<link rel='stylesheet' href='css/all.css'
+		integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+	<link rel="stylesheet" href="css/awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+	<link rel="fav-icon" href="/logo.png" type="image/png">
+	<link rel="stylesheet" href="/payment/css.css">
+	<link rel="stylesheet" href="/payment/mobile_css.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="master_js.js"></script>
+</head>
+
+<header id="header">
+	<div class="logo" onclick="location.href='index.php'">
+		<img src="/logo.png">
+		<h3>ADMIN</h3>
+	</div>
+	<div class="mobile_home">&equiv;</div>
+	<div class="head_txt">
+		<h3>Hi! </h3>
+		<h3>
+			<a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+
+		</h3>
+	</div>
+
+
+</header>
+
+
+<script>
+
+	$(document).ready(function () {
+		$('.mobile_home').on('click', function () {
+			$('#header').toggleClass('add_height');
+
+		})
+	})
+
+</script>
+<script>
+	$(document).ready(function () {
+		$("form").submit(function () {
+			$('#alert_display_full').css('display', 'block');
+		});
+	});
+</script>
+
+<style>
+
+</style>
+<div id="alert_display_full">
+	<div id="loader1"></div>
+	<h3>Loading...</h3>
+
+</div>
+
+
+<div class="main3">
+	<div class="main3">
+
+		<div class="navigator_up">
+			<a href="/userpanel/cardtheame">
+				<div class="nav_cont "><i class="fa fa-map"></i> Select Theme</div>
+			</a>
+			<a href="/userpanel/companydetail">
+				<div class="nav_cont"><i class="fa fa-bank"></i> Company Details</div>
+			</a>
+			<a href="/userpanel/social">
+				<div class="nav_cont "><i class="fa fa-facebook"></i> Social Links</div>
+			</a>
+			<a href="/userpanel/paymentoption">
+				<div class="nav_cont"><i class="fa fa-rupee"></i> Payment Options</div>
+			</a>
+			<a href="/userpanel/product">
+				<div class="nav_cont "><i class="fa fa-ticket"></i> Products & Services</div>
+			</a>
+			<a href="/userpanel/order">
+				<div class="nav_cont"><i class="fa fa-archive"></i> Order Page</div>
+			</a>
+			<a href="/userpanel/imagegalery">
+				<div class="nav_cont"><i class="fa fa-image"></i> Image Gallery</div>
+			</a>
+			<a href="/template1">
+				<div class="nav_cont"><i class="fa fa-laptop"></i> Preview Card</div>
+			</a>
+
+		</div>
+
+		<div class="btn_holder">
+			<a href="create_card3.php">
+				<div class="back_btn"><i class="fa fa-chevron-circle-left"></i> Back</div>
+			</a>
+			<a href="/userpanel/product">
+				<div class="skip_btn">Skip <i class="fa fa-chevron-circle-right"></i></div>
+			</a>
+		</div>
+
+		<h1>Payment Options</h1>
+
+		<form id="card_form" action="" method="POST" enctype="multipart/form-data">
+
+			<h3>Payment</h3>
+
+			<div class="input_box">
+				<p>PayTm Number (Optional) </p><input type="text" name="d_paytm" maxlength="20"
+					placeholder="Paytm Number" value="">
+			</div>
+			<div class="input_box">
+				<p>Google Pay (Optional) </p><input type="text" name="d_google_pay" maxlength="20"
+					placeholder="Google Pay Number" value="">
+			</div>
+			<div class="input_box">
+				<p>PhonePe (Optional) </p><input type="text" name="d_phone_pay" maxlength="20"
+					placeholder="PhonePe Number" value="">
+			</div>
+
+			<h3>Bank Account Details</h3>
+			<div class="input_box">
+				<p>Bank Name (Optional) </p><input type="text" name="d_bank_name" maxlength="100"
+					placeholder="Bank Name. Ex. HDFC, SBI etc" value="">
+			</div>
+			<div class="input_box">
+				<p>Account Holder Name (Optional) </p><input type="text" name="d_ac_name" maxlength="100"
+					placeholder="Account holder name" value="">
+			</div>
+			<div class="input_box">
+				<p>Bank Account Number (Optional) </p><input type="text" name="d_account_no" maxlength="100"
+					placeholder="Account Number" value="">
+			</div>
+			<div class="input_box">
+				<p>Bank IFSC Code (Optional) </p><input type="text" name="d_ifsc" maxlength="100"
+					placeholder="IFSC Code" value="">
+			</div>
+			<div class="input_box">
+				<p>GST (Optional) </p><input type="text" name="d_ac_type" maxlength="100" value=""
+					placeholder="Enter GST Number....">
+			</div>
+
+			<h3>Payment QR Code</h3>
+			<div class="divider">
+				<div class="num">Paytm QR Code</div>
+				<img src="/upload.png" type="file" name="files[]"  alt="Select image" id="showPreviewLogo10"
+					onclick="clickFocus10()">
+
+				<div class="input_box">
+					<script>
+						function clickFocus10() {
+							$('#clickMeImage10').click();
+						}
+
+						function readURL10(input) {
+							if (input.files && input.files[0]) {
+								var reader = new FileReader();
+								reader.onload = function (a) {
+									$('#showPreviewLogo10').attr('src', a.target.result);
+								};
+								reader.readAsDataURL(input.files[0]);
+								uploadimage(input.files[0])
+							}
+
+						}
+					</script>
+					<input type="file" name="d_qr_paytm" id="clickMeImage10" class="" onchange="readURL10(this);"
+						accept="image/*">
+
+				</div>
+			</div>
+
+
+
+			<div class="divider">
+				<div class="num">Google Pay QR Code</div>
+
+				<img src="/upload.png" alt="Select image" id="showPreviewLogo3" onclick="clickFocus3()">
+				<div class="input_box">
+					<script>
+						function clickFocus3() {
+							$('#clickMeImage3').click();
+						}
+
+						function readURL3(input) {
+							if (input.files && input.files[0]) {
+								var reader = new FileReader();
+								reader.onload = function (a) {
+									$('#showPreviewLogo3').attr('src', a.target.result);
+								};
+								reader.readAsDataURL(input.files[0]);
+								uploadimage(input.files[0])
+							}
+
+						}
+					</script>
+					<input type="file" name="d_qr_google_pay" id="clickMeImage3" class="" onchange="readURL3(this);"
+						accept="image/*">
+
+				</div>
+			</div>
+
+
+
+			<div class="divider">
+				<div class="num">PhonePe QR Code</div>
+
+				<img src="/upload.png" alt="Select image" id="showPreviewLogo2" onclick="clickFocus2()">
+				<div class="input_box">
+
+
+
+
+					<script>
+						function clickFocus2() {
+							$('#clickMeImage2').click();
+						}
+
+						function readURL2(input) {
+							if (input.files && input.files[0]) {
+								var reader = new FileReader();
+								reader.onload = function (a) {
+									$('#showPreviewLogo2').attr('src', a.target.result);
+								};
+								reader.readAsDataURL(input.files[0]);
+								uploadimage(input.files[0])
+							}
+
+						}
+					</script>
+					<input type="file" name="d_qr_phone_pay" id="clickMeImage2" class="" onchange="readURL2(this);"
+						accept="image/*">
+
+				</div>
+			</div>
+
+			<br>
+
+
+
+			<input type="submit" class="" name="process4" value="Next 5" id="block_loader">
+
+		</form>
+
+</div>
+
+	<footer class="">
+		<p>Â© www.localtodigital.in || 2021</p>
+	</footer>
+
+{{!-- Image upload --}}
+	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js "></script>
+
+	<script>
+
+		// adding firebase data
+		var firebaseConfig = {
+			apiKey: "AIzaSyCGwhgVgW0aHeQXMteWp871LK8Pby6Z824",
+			authDomain: "peopleconnect-c401b.firebaseapp.com",
+			projectId: "peopleconnect-c401b",
+			storageBucket: "peopleconnect-c401b.appspot.com",
+			messagingSenderId: "955792927516",
+			appId: "1:955792927516:web:7519e34d33bd53f9aaa8d9",
+			measurementId: "G-73LTXY7VSH"
+		};
+
+		
+		firebase.initializeApp(firebaseConfig);
+		var messagesRef = firebase.database().ref('Checking');
+		//uploading file in storage
+		function uploadimage(image) {
+			var storage = firebase.storage();
+			var file = image
+			var storageref = storage.ref();
+			var thisref = storageref.child("1").child(file.name).put(file);
+			thisref.on('state_changed', function (snapshot) {
+
+
+			}, function (error) {
+					alert(error);
+
+			}, function () {
+				// Uploaded completed successfully, now we can get the download URL
+				thisref.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+					//getting url of image
+					{{log downloadURL}}
+					alert(`uploaded successfuly ${downloadURL}`);
+
+				});
+			});
+
+		}
+		
+
+	</script>

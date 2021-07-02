@@ -1,0 +1,130 @@
+
+<!DOCTYPE html> 
+ 
+
+<title>Admin</title>
+
+<head>
+
+ <meta name="keywords" content="DIGI card, Digital Visiting Card">
+ 
+ <meta name="description" content="Best digital visiting card online with great design">
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <link rel='stylesheet' href='css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  
+  <link rel="stylesheet" href="css/awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <meta      name='viewport'      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<link rel="fav-icon" href="/logo.png" type="image/png">
+<link rel="stylesheet" href="/social/css.css" >
+<link rel="stylesheet" href="/social/mobile_css.css" >
+<script src="master_js.js"></script>
+
+
+
+</head>
+
+
+
+
+<header id="header">
+	<div class="logo" onclick="location.href='index.php'">
+		<img src="/logo.png"><h3>ADMIN</h3>
+	</div>
+	<div class="mobile_home">&equiv;</div>
+	<div class="head_txt">
+		<h3>Hi! 		</h3>
+		<h3>
+		<a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+		
+		</h3>
+	</div>
+	
+
+</header>
+
+
+<script>
+
+$(document).ready(function(){
+	$('.mobile_home').on('click',function(){
+		$('#header').toggleClass('add_height');
+		
+	})
+})
+
+</script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    $('#alert_display_full').css('display','block');
+  });
+});
+</script>
+
+<style>
+
+</style>
+<div id="alert_display_full">
+	<div id="loader1"></div>
+	<h3>Loading...</h3>
+
+</div>
+
+
+<div class="main3">
+	<div class="navigator_up">
+		<a href="/userpanel/cardtheame"><div class="nav_cont " ><i class="fa fa-map"></i> Select Theme</div></a>
+		<a href="/userpanel/companydetail"><div class="nav_cont"><i class="fa fa-bank"></i> Company Details</div></a>
+		<a href="/userpanel/social"><div class="nav_cont "><i class="fa fa-facebook"></i> Social Links</div></a>
+		<a href="/userpanel/paymentoption"><div class="nav_cont"><i class="fa fa-rupee"></i> Payment Options</div></a>
+		<a href="/userpanel/product"><div class="nav_cont "><i class="fa fa-ticket"></i> Products & Services</div></a>
+		<a href="/userpanel/order"><div class="nav_cont"><i class="fa fa-archive"></i> Order Page</div></a>
+		<a href="/userpanel/imagegalery"><div class="nav_cont"><i class="fa fa-image"></i> Image Gallery</div></a>
+		<a href="/template1"><div class="nav_cont"><i class="fa fa-laptop"></i> Preview Card</div></a>
+	
+	</div>	
+	<div class="btn_holder">
+		<a href="create_card2.php"><div class="back_btn"><i class="fa fa-chevron-circle-left"></i> Back</div></a>
+		<a href="/userpanel/paymentoption"><div class="skip_btn">Skip <i class="fa fa-chevron-circle-right"></i></div></a>
+	</div>
+	
+	<h1>Social Links</h1>
+	
+	<form id="card_form"  action="" method="POST" enctype="multipart/form-data" >
+	
+		<h3>Social Media Links</h3>
+		<div class="input_box"><p>Facebook Link(Optional)</p><input type="text" name="d_fb" maxlength="200" placeholder="facebook Link" value="" ></div>
+		
+		<div class="input_box"><p>Twitter Link(Optional)</p><input type="text" name="d_twitter" maxlength="200" placeholder="Twitter Link " value=""></div>
+		
+		<div class="input_box"><p>Instagram Link(Optional) </p><input type="text" name="d_instagram" maxlength="200" placeholder="Instagram Link" value="" ></div>
+		
+		<div class="input_box"><p>LinkedIn Link(Optional)</p><input type="text" name="d_linkedin" maxlength="200" placeholder="Linked in Link" value="" ></div>
+		
+		<div class="input_box"><p>Youtube Link(Optional)</p><input type="text" name="d_youtube" maxlength="200" placeholder="Youtube Page Link" value="" ></div>
+		
+		<div class="input_box"><p>Pinterest Link(Optional)</p><input type="text" name="d_pinterest" maxlength="200" placeholder="Pinterest Link"  value="" ></div>
+		
+		<h3>Youtube Video Links</h3>
+		<div class="input_box"><p>Youtube Video Link (Optional)</p><input type="text" name="d_youtube1" maxlength="200" placeholder="1st Youtube Video Link "  value="" ></div>
+		<div class="input_box"><p>Youtube Video Link 2(Optional)</p><input type="text" name="d_youtube2" maxlength="200" placeholder="2nd Youtube Video Link"  value="" ></div>
+		<div class="input_box"><p>Youtube Video Link 3(Optional)</p><input type="text" name="d_youtube3" maxlength="200" placeholder="3rd Youtube Video Link"  value="" ></div>
+		<div class="input_box"><p>Youtube Video Link 4(Optional)</p><input type="text" name="d_youtube4" maxlength="200" placeholder="4th Youtube Video Link"  value="" ></div>
+		<div class="input_box"><p>Youtube Video Link 5(Optional)</p><input type="text" name="d_youtube5" maxlength="200" placeholder="5th Youtube Video Link"  value="" ></div>
+		
+		
+		
+		<input type="submit" class="" name="process3" value="Next 4" id="block_loader">
+	
+	</form>
+	
+	
+</div>
+
+
+
+<footer class="">
+	<p>© www.localtodigital.in || 2021</p>
+</footer>

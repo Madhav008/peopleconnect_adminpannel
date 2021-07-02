@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+
+<title>Admin</title>
+
+<head>
+	<meta name="keywords" content="DIGI card, Digital Visiting Card">
+
+	<meta name="description" content="Best digital visiting card online with great design">
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<link rel='stylesheet' href='../all.css'
+		integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+	<link rel="stylesheet" href="../awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+	<link rel="fav-icon" href="images/logo.png" type="image/png">
+	<link rel="stylesheet" href="/dashboard/css.css">
+	<link rel="stylesheet" href="/dashboard/mobile_css.css">
+	<link rel="stylesheet" href="/css/all.css">
+	<link rel="stylesheet" href="/cs/awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script src="master_js.js"></script>
+</head>
+
+<header id="header">
+	<div class="logo" onclick="location.href='index.php'">
+		<img src="/logo.png">
+		<h3>ADMIN</h3>
+	</div>
+	<div class="mobile_home">&equiv;</div>
+	<div class="head_txt">
+		<h3>Hi! {{this.name}}</h3>
+		<h3>
+			<a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+
+		</h3>
+	</div>
+
+
+</header>
+
+
+<script>
+
+	$(document).ready(function () {
+		$('.mobile_home').on('click', function () {
+			$('#header').toggleClass('add_height');
+
+		})
+	})
+
+</script>
+<script>
+	$(document).ready(function () {
+		$("form").submit(function () {
+			$('#alert_display_full').css('display', 'block');
+		});
+	});
+</script>
+
+<style>
+
+</style>
+<div id="alert_display_full">
+	<div id="loader1"></div>
+	<h3>Loading...</h3>
+
+</div>
+<!-----------------php 1st script----------------------->
+{{!-- <div class="main2">
+	<div class="alert info">Trial Cards are only available for 1 day. Please make payment to avoid Cancellation or
+		Deactivation of your card</div>
+</div> --}}
+
+<!-----------------ending php 1st script----------------------->
+
+<div class="container">
+	<div class="card_row">
+
+		<div class="row_contd">Card ID</div>
+		<div class="row_contd">Company Name</div>
+		<div class="row_contd">Payment Status</div>
+		<div class="row_contd">Card Status</div>
+		<div class="row_contd">Data</div>
+		<div class="row_contd">Share</div>
+		<div class="row_contd">Edit</div>
+		<div class="row_contd"></div>
+
+
+	</div>
+
+	<li class="card_row2">
+		<div class="row_contd"><a href="https://www.mybusinessdvc.com/zirkon2" target="_blank">77</div>
+		<div class="row_contd">zirkon <i class="fa fa-external-link">
+
+			</i></div></a>
+		<div class="row_contd" id="Created">Created</div>
+		<div class="row_contd" id="Active">Active</div>
+		<div class="row_contd">28-May-2021</div>
+		<div class="row_contd"><a href="https://api.whatsapp.com/send?text=https://www.mybusinessdvc.com/zirkon2"
+				target="_blank">
+				<i class="fa fa-share"></i>
+			</a><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.mybusinessdvc.com/zirkon2"
+				target="_blank"><i class="fa fa-facebook"></i></a></div>
+		<div class="row_contd"><a href="/userpanel/template"><i class="fa fa-edit"></i></a></div><a
+			href="payment_page/pay.php?id=77" target="_blank">
+			<div class="row_contd pay_now_btn">Pay Now</div>
+		</a>
+	</li>
+	<li class="card_row2">
+		<div class="row_contd"><a href="https://www.mybusinessdvc.com/Zirkon" target="_blank">76</div>
+		<div class="row_contd">Zirkon <i class="fa fa-external-link"></i></div></a>
+		<div class="row_contd" id="Created">Created</div>
+		<div class="row_contd" id="Active">Active</div>
+		<div class="row_contd">28-May-2021</div>
+		<div class="row_contd">
+			<a href="https://api.whatsapp.com/send?text=https://www.mybusinessdvc.com/Zirkon" target="_blank"><i
+					class="fa fa-whatsapp"></i>
+			</a>
+
+			<a href="https://www.facebook.com/sharer/sharer.php?u=https://www.mybusinessdvc.com/Zirkon"
+				target="_blank"><i class="fa fa-facebook"></i></a>
+		</div>
+		<div class="row_contd"><a href="/userpanel/template"><i class="fa fa-edit"></i></a></div><a
+			href="payment_page/pay.php?id=76" target="_blank">
+			<div class="row_contd pay_now_btn">Pay Now</div>
+		</a>
+	</li>
+
+
+	<a href="/userpanel/cardtheame/{{this.id}}">Create New Template</a>
+</div>
+
+
+
+<footer class="">
+	<p>© www.localtodigital.in || 2021</p>
+</footer>

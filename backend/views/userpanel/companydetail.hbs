@@ -1,0 +1,160 @@
+
+<!DOCTYPE html> 
+ 
+
+<title>Admin</title>
+
+<head>
+
+ <meta name="keywords" content="DIGI card, Digital Visiting Card">
+ 
+ <meta name="description" content="Best digital visiting card online with great design">
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <link rel='stylesheet' href='/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  
+  <link rel="stylesheet" href="/css/awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <meta      name='viewport'      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<link rel="fav-icon" href="/logo.png" type="image/png">
+<link rel="stylesheet" href="/company/css.css" >
+<link rel="stylesheet" href="/company/mobile_css.css" >
+<script src="master_js.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+</head>
+
+
+
+
+<header id="header">
+	<div class="logo" onclick="location.href='index.php'">
+		<img src="/logo.png"><h3>ADMIN</h3>
+	</div>
+	<div class="mobile_home">&equiv;</div>
+	<div class="head_txt">
+		<h3>Hi! 		</h3>
+		<h3>
+		<a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+		
+		</h3>
+	</div>
+	
+
+</header>
+
+
+<script>
+
+$(document).ready(function(){
+	$('.mobile_home').on('click',function(){
+		$('#header').toggleClass('add_height');
+		
+	})
+})
+
+</script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    $('#alert_display_full').css('display','block');
+  });
+});
+</script>
+
+<style>
+
+</style>
+<div id="alert_display_full">
+	<div id="loader1"></div>
+	<h3>Loading...</h3>
+
+</div>
+
+
+<div class="main3">
+	<div class="navigator_up">
+		<a href="/userpanel/cardtheame"><div class="nav_cont " ><i class="fa fa-map"></i> Select Theme</div></a>
+		<a href="/userpanel/companydetail"><div class="nav_cont"><i class="fa fa-bank"></i> Company Details</div></a>
+		<a href="/userpanel/social"><div class="nav_cont "><i class="fa fa-facebook"></i> Social Links</div></a>
+		<a href="/userpanel/paymentoption"><div class="nav_cont"><i class="fa fa-rupee"></i> Payment Options</div></a>
+		<a href="/userpanel/product"><div class="nav_cont "><i class="fa fa-ticket"></i> Products & Services</div></a>
+		<a href="/userpanel/order"><div class="nav_cont"><i class="fa fa-archive"></i> Order Page</div></a>
+		<a href="/userpanel/imagegalery"><div class="nav_cont"><i class="fa fa-image"></i> Image Gallery</div></a>
+		<a href="/template1"><div class="nav_cont"><i class="fa fa-laptop"></i> Preview Card</div></a>
+	
+	</div>
+	
+	<div class="btn_holder">
+		<a href="select_theme.php"><div class="back_btn"><i class="fa fa-chevron-circle-left"></i> Back</div></a>
+		<a href="/userpanel/social"><div class="skip_btn">Skip <i class="fa fa-chevron-circle-right"></i></div></a>
+	</div>
+	<h1>Company Details</h1>
+	
+	<form id="card_form"  action="" method="POST" enctype="multipart/form-data" >
+	
+
+<!-------------------form ----------------------->	
+		<img src="images/logo.png" alt="Select image" id="showPreviewLogo" onclick="clickFocus()" >
+		<div class="input_box"><p>Company Logo (Required)* 250KB max size </p>
+		
+		
+		
+			<script>
+				function clickFocus(){
+					$('#clickMeImage').click();
+				}
+				
+				function readURL(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload= function (a){
+							$('#showPreviewLogo').attr('src',a.target.result);
+						};
+						reader.readAsDataURL(input.files[0]);
+					}
+					
+				}
+			</script>
+			<input type="file" name="d_logo" id="clickMeImage" onchange="readURL(this);" accept="image/*"  >
+			
+		</div>	
+
+		<h3>Personal Details</h3>
+		<div class="input_box"><p>First Name *</p><input type="text" name="d_f_name" maxlength="20" placeholder="{{company.firstName}}" value="" required></div>
+		
+		<div class="input_box"><p>Last Name (Optional)</p><input type="text" name="d_l_name" maxlength="20" placeholder="Enter Last Name  (Optional)" value=""></div>
+		
+		<div class="input_box"><p>Position/Designation * </p><input type="text" name="d_position" maxlength="20" placeholder="Enter Position/Designation (Ex. Manager etc.)" value="" required></div>
+		
+		<div class="input_box"><p>Phone No * </p><input type="text" name="d_contact" maxlength="13" placeholder="Enter Phone Number" value="" required></div>
+		
+		<div class="input_box"><p>Alternet Phone No (Optional)</p><input type="text" name="d_contact2" maxlength="13" placeholder="Enter Alternet Phone Number  (Optional)" value="" ></div>
+		
+		<div class="input_box"><p>WhatsApp No * </p><input type="text" name="d_whatsapp" maxlength="13" placeholder="Enter WhatsApp Number"  value="" required></div>
+		
+		<div class="input_box"><p>Address * </p><textarea type="text" name="d_address" maxlength="500" placeholder="Full Address"  required></textarea></div>
+		
+		<div class="input_box"><p>Email Id * </p><input type="email" name="d_email" maxlength="100" placeholder="Email Address" value="" required></div>
+		<div class="input_box"><p>Website (Optional) </p><input type="text" name="d_website" maxlength="200" placeholder="Website (Optional)" value="" ></div>
+		<div class="input_box"><p>Location (Optional) </p><input type="text" name="d_location" maxlength="999" placeholder="Your Business Location (Optional)" value="" ></div>
+		<div class="input_box"><p>Company Est Date *</p><input type="text" name="d_comp_est_date" maxlength="200" placeholder="When your comp. was started?" value="" required></div>
+		
+		<div class="input_box"><p>About Us * </p><textarea type="text" name="d_about_us" maxlength="1900" placeholder="About your company/business"  required></textarea></div>
+			
+		<input type="submit" class="" name="process2" value="Next 3" id="block_loader">
+		<a href="/userpanel/social/{{userId}}">Create Social</a>
+	
+<!-------------------form ending----------------------->
+	</form>
+	
+	
+</div>
+
+
+<footer class="">
+	<p>© www.localtodigital.in || 2021</p>
+</footer>

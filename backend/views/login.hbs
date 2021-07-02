@@ -1,0 +1,83 @@
+<title>Admin</title>
+
+<head>
+
+ <meta name="keywords" content="DIGI card, Digital Visiting Card">
+ 
+ <meta name="description" content="Best digital visiting card online with great design">
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  {{!-- <link rel='stylesheet' href='../all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'> --}}
+  
+  {{!-- <link rel="stylesheet" href="../awesome.min.css"> --}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <meta      name='viewport'      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+{{!-- <link rel="fav-icon" href="images/logo.png" type="image/png"> --}}
+<link rel="stylesheet" href="/login/css.css" >
+<link rel="stylesheet" href="/login/mobile_css.css" >
+{{!-- <script src="master_js.js"></script> --}}
+
+
+
+</head>
+
+<div class="clip_path1"></div>
+<div class="login">
+	
+	<form action="/api/v1/user/login" method="post" role="form" class="feedback-form card" enctype="application/x-www-form-urlencoded">
+	<h1>franchisee Login</h1>
+	{{!-- <p>Contact Us For Franchisee Registration +91-9638770267.<br>
+	INR 250 Per Card, Min Deposit INR 1000</p> --}}
+		<input type="text" name="email" id="email" placeholder="Enter Email id or Mobile Number" autocomplete="on" required>
+		<input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+		<input type="submit" value="Login">
+		
+		<br>
+		<br>
+		<br>
+	<!--	<a id="register_en" >New User? Register. --></a><a id="forgot_p">Forgot Password?</a>
+		<br>
+		<br>
+	
+	</form>
+	
+	
+	{{!-- <form action="" method="post" autocomplete="off" id="register">
+	<h1>Create An Account</h1>
+	<p>Create an account with your email id and password to create your digital visiting card</p>
+		<input type="text" name="f_user_name" placeholder="Enter Name" autocomplete="" required>
+		<input type="email" name="f_user_email" placeholder="Enter Email" autocomplete="" required>
+		<input type="text" name="f_user_contact" maxlength="10" min="4555555555" placeholder="Enter Mobile Number" autocomplete="off" required>
+		<input type="password" name="f_user_password" placeholder="New Password" autocomplete="off" required>
+		
+		<input type="submit" name="register" value="Create Account">
+		<br>
+		<br>
+		<a id="login_en">Existing User? Click to Login</a><a id="forgot_p">Forgot Password?</a>
+		<br>
+		<br>
+	</form> --}}
+
+
+	<form action="" method="post" autocomplete="off" id="forgot_pass">
+	<h1>Forgot Password?</h1>
+	<p>Mention Email id, you will receive an email with password.</p>
+		
+		<input type="email" name="f_user_email" placeholder="Enter Email" autocomplete="on" required>
+		
+		
+		<input type="submit" name="forgot_password" value="Send Password">
+		<br>
+		<br>
+		<a id="login_en" href="">Go Back to Login</a><a id="forgot_p">Forgot Password?</a>
+		<br>
+		<br>
+	</form>
+
+
+</div>
+
+<footer class="">
+
+
+</div>
